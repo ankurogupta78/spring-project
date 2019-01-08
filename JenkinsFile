@@ -1,0 +1,20 @@
+node {
+
+stage('application_build ') {
+checkout scm
+bat 'mvn package -DskipTests'
+}
+stage('unit_test') {
+    bat 'mvn test'
+    step([$class: 'Publisher'])
+
+}
+stage('code_analysis') {
+    withSonarQubeEnv {
+        bat 'mvn sonar:sonar'
+        }
+}
+stage('application_deploy'){
+    build 'application_deploy_to_test'
+}
+}
