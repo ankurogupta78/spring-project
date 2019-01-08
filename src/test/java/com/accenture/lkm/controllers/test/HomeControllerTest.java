@@ -39,7 +39,7 @@ public class HomeControllerTest {
 	public void testHomeGreeting() {
 		HomeController hc = new HomeController();
 		ModelAndView mv = hc.home();
-		assertEquals("Greeting Missing!", "Accenture - Welcome to Orchestrating with Jenkins Training!" , mv.getModelMap().get("greeting"));
+		assertEquals("Greeting Missing!", "Accenture Pipeline - Welcome to Orchestrating with Jenkins Training!" , mv.getModelMap().get("greeting"));
 	}
 	
 	@AfterClass
